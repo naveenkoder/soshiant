@@ -1,0 +1,2 @@
+[06-Jul-2023 13:24:50 UTC] PHP Deprecated:  Unparenthesized `a ? b : c ? d : e` is deprecated. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` in /home/soshian2/admin.soshianest.ai/includes/classes/PHPFusion/QuantumFields.inc on line 2042
+[06-Jul-2023 13:24:50 UTC] PHP Deprecated:  Unparenthesized `a ? b : c ? d : e` is deprecated. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` in /home/soshian2/admin.soshianest.ai/includes/classes/PHPFusion/QuantumFields.inc on line 2641
