@@ -21,9 +21,9 @@ function Login($data)
 
 function CheckToken($token)
 {
-    $token = explode(" ", $token)[1];
-    $token = base64_decode($token);
-    $token = explode(":", $token);
+    $token = explode(" ", $token)[1];  
+    $token = base64_decode($token);    
+    $token = explode(":", $token);    
     $username = $token[0];
     $password = $token[1];
     $user = GetUser($username, $password);
@@ -53,7 +53,7 @@ function GetUser($username, $password)
 function UseGaurd()
 {
     global $Levels;
-    $token = $_SERVER['HTTP_AUTHENTICATION'];
+    $token = $_SERVER['HTTP_AUTHENTICATION'];    
     $user = CheckToken($token);
     if (!$user) {
         echo httpMessage(HTTP_UNAUTHORIZED);

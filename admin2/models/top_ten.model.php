@@ -6,7 +6,9 @@ function createTopTen($data)
     $unique_id = $data['unique_id'];
     $top_ten = addslashes($data['top_ten']);
     $create_time = time();
-    $sql = "INSERT INTO arioo_top_ten (create_time, top_ten, unique_id) VALUES ($create_time, '$top_ten', '$unique_id')";
+    $user_id = fusion_get_userdata()['user_id'] ?? 0 ;
+    $username = fusion_get_userdata()['user_name'] ?? null;
+    $sql = "INSERT INTO arioo_top_ten (create_time, top_ten, unique_id,user_id, user_name) VALUES ($create_time, '$top_ten', '$unique_id',$user_id, '$username')";
     $result = dbquery($sql);
     if ($result) {
         return true;

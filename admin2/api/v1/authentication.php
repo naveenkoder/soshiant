@@ -3,6 +3,7 @@ require_once __DIR__ . "/../../maincore.php";
 require_once './services/api.php';
 require "./services/authentication.service.php";
 require "./services/messages.php";
+require_once '../../models/client_logs.php';
 
 setHeaders();
 
@@ -42,6 +43,28 @@ else if ($_POST['action'] == 'check_token') {
     $token = CheckToken($_POST['token'], $_POST['username']);
     http_response_code($token ? 200 : 401);
 } 
+else if ($_POST['action'] == "save_client_logs" || $_GET['action'] == "save_client_logs") {
+    $result = createClientLogs($_POST);
+   
+    if($result) {
+       echo json_encode([
+            'message' => "Clients Logs saved",
+            'code' => 200,
+        ]);
+    }
+    else
+    {
+        echo json_encode([
+            'message' => "Clients Logs not saved",
+            'code' => 500,
+        ]);
+    }
+}
+else if ($_GET['type'] == "get_client_logs") {
+    $result = getClientLogs(true);
+    echo json_encode(['data' =>$result]);
+}
+
 else {
     echo httpMessage(200);
 }
